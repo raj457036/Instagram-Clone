@@ -1,6 +1,6 @@
 # instagram
 
-A Instagram Clone in Flutter.
+An Instagram Clone in Flutter.
 
 ## Info
 This app is a design only prototype with interaction
