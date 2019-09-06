@@ -8,30 +8,30 @@ This app is a design only prototype with interaction
 ### Sample Images
 
 1. Digest Page
-    !['Digest Page'](../../samples/digest page.jpg);
+    ![Digest Page](samples/digest_page.jpg)
 
 2. Digest Card
-    !['Digest Card'](../../samples/digest card options.jpg);
+    ![Digest Card](samples/digest_card_options.jpg)
 
 3. Report
-    !['Report'](../../samples/report.jpg);
+![Report](samples/report.jpg)
 
 4. Message Board
-    !['Digest Card'](../../samples/message board.jpg);
+    ![Digest Card](samples/message_board.jpg)
 
 5. Message Option (long press)
-    !['Digest Card'](../../samples/message options.jpg);
+    ![Digest Card](samples/message_options.jpg)
 
 6. Message Write
-    !['Message Write'](../../samples/write message.jpg);
+    ![Message Write](samples/write_message.jpg)
 
 7. Message Write + keyoard open
-    !['Message Write + keyoard open'](../../samples/open keyboard + message.jpg);
+    ![Message Write + keyoard open](samples/open_keyboard_message.jpg)
 
 
 ## Demo Video
 
-    !['Demo Video'](../../samples/demo video.mp4);
+[Demo Video](https://samples/demo_video.mp4)
 
 ## Thank You
 
