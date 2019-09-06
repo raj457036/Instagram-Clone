@@ -33,5 +33,11 @@ This app is a design only prototype with interaction
 
 [Demo Video](samples/demo_video.mp4)
 
+
+## Credits
+- **Images** [Unsplash](https://www.unsplash.com)
+- **Icon** Material Icons
+- **Author** [Me 😊](https://github.com/raj457036)
+
 ## Thank You
 
