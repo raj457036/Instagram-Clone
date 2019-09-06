@@ -4,37 +4,41 @@ import './digest/post_card.dart';
 import 'dart:math' as math;
 
 class DigestPage extends StatefulWidget {
-  const DigestPage({Key key}) : super(key: key);
+  final Function msg;
+  const DigestPage(this.msg, {Key key}) : super(key: key);
 
   @override
-  _DigestPage createState() => _DigestPage();
+  _DigestPage createState() => _DigestPage(msg);
 }
 
 class _DigestPage extends State<DigestPage> {
+  Function msg;
+  _DigestPage(this.msg);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Row(
-            children: <Widget>[
-              Icon(Icons.camera_alt, color: Colors.black),
-              SizedBox(
-                width: 8.0,
-              ),
-              Image.asset(
-                'assets/logos/logofont.png',
-                height: 34,
-              ),
-            ],
+          leading: IconButton(
+            icon: Icon(Icons.camera_alt, color: Colors.black),
+            onPressed: () {},
+            iconSize: 30.0,
+          ),
+          titleSpacing: 0.0,
+          title: Image.asset(
+            'assets/logos/logofont.png',
+            height: 34,
           ),
           actions: <Widget>[
-            Padding(
-              child: Transform.rotate(
-                child: Icon(Icons.send, color: Colors.black),
-                angle: -math.pi / 4.0,
+            Transform.rotate(
+              child: IconButton(
+                icon: Icon(Icons.send, color: Colors.black),
+                onPressed: () {
+                  msg();
+                },
               ),
-              padding: EdgeInsets.only(right: 12.0),
-            )
+              angle: -math.pi / 4.0,
+            ),
           ],
         ),
         bottomNavigationBar: BottomAppBar(

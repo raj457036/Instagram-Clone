@@ -24,18 +24,11 @@ class MsgDetail extends StatelessWidget {
             padding: EdgeInsets.all(14.0),
             children: <Widget>[
               SizedBox(
-                child: Text('hello'),
-                height: 400.0,
+                height: 60.0,
               ),
-              SizedBox(
-                child: Text('hello'),
-                height: 400.0,
-              ),
-              SizedBox(
-                child: Text('hello'),
-                height: 400.0,
-              )
+              ...getMsgs(context),
             ],
+            reverse: true,
           ),
           Positioned(
             bottom: 0,
@@ -67,10 +60,10 @@ class MsgDetail extends StatelessWidget {
                             contentPadding: EdgeInsets.all(5.0),
                             border: InputBorder.none,
                             hintText: 'Message...'),
-                            textInputAction: TextInputAction.newline,
-                            autofocus: true,
-                            maxLines: 5,
-                            minLines: 1, 
+                        textInputAction: TextInputAction.newline,
+                        autofocus: true,
+                        maxLines: 5,
+                        minLines: 1,
                       ),
                     ),
                     IconButton(
@@ -119,6 +112,79 @@ class MsgDetail extends StatelessWidget {
           style: Theme.of(context).textTheme.body2,
         )
       ],
+    );
+  }
+
+  List<Widget> getMsgs(BuildContext context) {
+    return <Widget>[
+      getMsgBubble(msg: getTextMsg(context, text: 'i am happy lorem i am happy loremi am happy loremi am happy lorem')),
+      getMsgBubble(
+          sent: false,
+          msg: getTextMsg(context, text: 'i am happy', sent: false)),
+      getMsgBubble(
+        sent: false,
+        msg: getImageMsg(context,
+            url: 'https://source.unsplash.com/random', sent: false),
+      ),
+      getMsgBubble(
+        msg: getImageMsg(context, url: 'https://source.unsplash.com/random/?mountains'),
+      )
+    ].reversed.toList();
+  }
+
+  Widget getMsgBubble({bool sent = true, Widget msg}) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        mainAxisAlignment:
+            sent ? MainAxisAlignment.end : MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          sent
+              ? Container()
+              : ClipRRect(
+                  child: Image.network(
+                    'https://source.unsplash.com/random/100x100',
+                    height: 30,
+                  ),
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+          msg
+        ],
+      ),
+    );
+  }
+
+  Widget getTextMsg(BuildContext context, {String text, bool sent = true}) {
+    return Container(
+      child: Text(
+        text,
+        style: Theme.of(context).textTheme.subhead,
+        softWrap: true,
+      ),
+      constraints: BoxConstraints(maxWidth: 2 * MediaQuery.of(context).size.width / 3,),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        borderRadius: BorderRadius.circular(20.0),
+        color: sent ? Color(0xd6d6d6d6) : Colors.transparent,
+        border: sent ? null : Border.all(width: 1.0, color: Color(0xd6d6d6d6)),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 14.0),
+      margin: sent ? null : EdgeInsets.only(left: 8.0),
+    );
+  }
+
+  Widget getImageMsg(BuildContext context, {String url, bool sent = true}) {
+    return Container(
+      child: ClipRRect(
+        child: Image.network(
+          url,
+          fit: BoxFit.contain,
+          width: 2 * MediaQuery.of(context).size.width / 3,
+        ),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      margin: sent ? null : EdgeInsets.only(left: 8.0),
     );
   }
 }

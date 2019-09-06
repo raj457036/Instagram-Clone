@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
             appBarTheme: AppBarTheme(color: Colors.grey[100]),
             iconTheme: IconThemeData(color: Colors.black),
+            backgroundColor: Colors.white,
             fontFamily: 'Roboto2',
             textTheme: TextTheme(
               display4: TextStyle(
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.w400),
               caption: TextStyle(
                 inherit: true,
-                color: Colors.black87,
+                color: Colors.black38,
               ),
               button: TextStyle(
                 inherit: true,

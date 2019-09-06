@@ -1,30 +1,39 @@
 import 'package:flutter/material.dart';
 import './msg_detail.dart';
+import './search.dart';
 
 class MsgList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        Container(
-          margin: EdgeInsets.all(18.0),
-          decoration: BoxDecoration(
-            border: Border.all(width: 1.0, color: Colors.grey),
-            borderRadius: BorderRadius.circular(5.0),
-          ),
-          padding: EdgeInsets.all(6.0),
-          child: Row(
-            children: <Widget>[
-              Icon(
-                Icons.search,
-                color: Colors.grey,
-              ),
-              Text(
-                ' Search',
-                style:
-                    TextStyle(fontWeight: FontWeight.w500, color: Colors.grey),
-              )
-            ],
+        GestureDetector(
+          onTap: () {
+            showSearch(
+              context: context,
+              delegate: CustomSearchDelegate(),
+            );
+          },
+          child: Container(
+            margin: EdgeInsets.all(18.0),
+            decoration: BoxDecoration(
+              border: Border.all(width: 1.0, color: Colors.grey),
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            padding: EdgeInsets.all(6.0),
+            child: Row(
+              children: <Widget>[
+                Icon(
+                  Icons.search,
+                  color: Colors.grey,
+                ),
+                Text(
+                  ' Search',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500, color: Colors.grey),
+                )
+              ],
+            ),
           ),
         ),
         Padding(
@@ -78,9 +87,8 @@ class MsgList extends StatelessWidget {
         },
       ),
       onTap: () {
-        Navigator.push(context, MaterialPageRoute<void>(
-          builder: (_) => MsgDetail()
-        ));
+        Navigator.push(
+            context, MaterialPageRoute<void>(builder: (_) => MsgDetail()));
       },
       onLongPress: () => getOptions(context),
     );

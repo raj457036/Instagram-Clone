@@ -2,20 +2,30 @@ import 'package:flutter/material.dart';
 import './msg/msg_list.dart';
 
 class MsgPage extends StatefulWidget {
-  const MsgPage({Key key}) : super(key: key);
+  final Function home;
+
+  MsgPage(this.home);
 
   @override
-  _MsgPage createState() => _MsgPage();
+  _MsgPage createState() => _MsgPage(home);
 }
 
 class _MsgPage extends State<MsgPage> {
+  Function home;
+  _MsgPage(this.home);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            home();
+          },
         ),
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.end,

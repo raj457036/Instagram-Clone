@@ -4,7 +4,7 @@ import './home/camera_page.dart';
 import './home/msg_page.dart';
 
 class HomePage extends StatelessWidget {
-  final PageController controller = PageController(initialPage: 1 );
+  final PageController controller = PageController(initialPage: 1);
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,17 @@ class HomePage extends StatelessWidget {
       pageSnapping: true,
       children: <Widget>[
         CameraPage(),
-        DigestPage(),
-        MsgPage(),
+        DigestPage(goMsg),
+        MsgPage(goHome),
       ],
     );
+  }
+
+  void goHome() {
+    controller.jumpToPage(1);
+  }
+
+  void goMsg() {
+    controller.jumpToPage(2);
   }
 }
