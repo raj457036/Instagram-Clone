@@ -1,16 +1,37 @@
 # instagram
 
-A new Flutter project.
+A Instagram Clone in Flutter.
 
-## Getting Started
+## Info
+This app is a design only prototype with interaction
 
-This project is a starting point for a Flutter application.
+### Sample Images
 
-A few resources to get you started if this is your first Flutter project:
+1. Digest Page
+    !['Digest Page'](../../samples/digest page.jpg);
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+2. Digest Card
+    !['Digest Card'](../../samples/digest card options.jpg);
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3. Report
+    !['Report'](../../samples/report.jpg);
+
+4. Message Board
+    !['Digest Card'](../../samples/message board.jpg);
+
+5. Message Option (long press)
+    !['Digest Card'](../../samples/message options.jpg);
+
+6. Message Write
+    !['Message Write'](../../samples/write message.jpg);
+
+7. Message Write + keyoard open
+    !['Message Write + keyoard open'](../../samples/open keyboard + message.jpg);
+
+
+## Demo Video
+
+    !['Demo Video'](../../samples/demo video.mp4);
+
+## Thank You
+

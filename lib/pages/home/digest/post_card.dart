@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class PostCard extends StatefulWidget {
+  final String name;
+  final String topCom;
+  PostCard(this.name, this.topCom);
+
   @override
-  _PostCardState createState() => _PostCardState();
+  _PostCardState createState() => _PostCardState(this.name, this.topCom);
 }
 
 class _PostCardState extends State<PostCard> {
@@ -12,6 +16,10 @@ class _PostCardState extends State<PostCard> {
   bool liked = false;
   int likesCount = 0;
   int commentCount = 89;
+  final String name;
+  final String topCom;
+
+  _PostCardState(this.name, this.topCom);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +31,7 @@ class _PostCardState extends State<PostCard> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
-                child: getAvatar(context),
+                child: getAvatar(context, name),
               ),
               Expanded(
                 child: Align(
@@ -93,12 +101,12 @@ class _PostCardState extends State<PostCard> {
             child: Text.rich(
               TextSpan(children: [
                 TextSpan(
-                  text: 'hello world ',
+                  text: topCom,
                   style: Theme.of(context).textTheme.body2,
                 ),
                 TextSpan(
                     text:
-                        'This is a normal comment for every one to see here and now')
+                        'This is a normal comment for every one to see')
               ]),
               maxLines: 2,
             ),
@@ -119,7 +127,7 @@ class _PostCardState extends State<PostCard> {
     );
   }
 
-  Widget getAvatar(BuildContext context) {
+  Widget getAvatar(BuildContext context, String name) {
     return Row(
       children: <Widget>[
         Container(
@@ -138,7 +146,7 @@ class _PostCardState extends State<PostCard> {
           margin: EdgeInsets.only(right: 8.0),
         ),
         Text(
-          'ghanta',
+          name,
           maxLines: 1,
           style: Theme.of(context).textTheme.body2,
         )
@@ -146,8 +154,7 @@ class _PostCardState extends State<PostCard> {
     );
   }
 
-  Future getOptions(BuildContext context) {
-    print('hello');
+  Future getOptions(BuildContext context) async {
     return showDialog(
       context: context,
       builder: (_) => SimpleDialog(

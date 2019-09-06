@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import './msg_detail.dart';
 import './search.dart';
+import 'dart:math' show Random;
+
+final random = Random();
+final users = [
+            ['Martha', 'animal'],
+            ['kabil_45', 'birds'],
+            ['bob23', 'humans'],
+            ['he_he_mart', 'men'],
+            ['ravi_34_uo', 'women']
+          ];
 
 class MsgList extends StatelessWidget {
   @override
@@ -51,29 +61,16 @@ class MsgList extends StatelessWidget {
             ],
           ),
         ),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
-        getTile(context),
+        ...users.map((i){return getTile(context, i);})
       ],
     );
   }
 
-  Widget getTile(BuildContext context) {
+  Widget getTile(BuildContext context, List<String> user) {
     return ListTile(
-      leading: getAvatar(),
+      leading: getAvatar(user[1]),
       title: Text(
-        'Sod._.p',
+        user[0],
         style: Theme.of(context).textTheme.body1,
       ),
       subtitle: Text(
@@ -94,11 +91,11 @@ class MsgList extends StatelessWidget {
     );
   }
 
-  Widget getAvatar() {
+  Widget getAvatar(String img) {
     return Container(
       child: ClipRRect(
         child: Image.network(
-          'https://source.unsplash.com/random/100x100',
+          'https://source.unsplash.com/random/100x100/?$img',
           height: 60,
         ),
         borderRadius: BorderRadius.circular(50),

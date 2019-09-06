@@ -9,18 +9,18 @@ class StatusList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.all(5.0),
         children: <Widget>[
-          getAvatar(context),
-          getAvatar(context),
-          getAvatar(context),
-          getAvatar(context),
-          getAvatar(context),
-          getAvatar(context),
+          getAvatar(context, 'bob23'),
+          getAvatar(context, 'he_he_mart'),
+          getAvatar(context, 'dug_opi'),
+          getAvatar(context, 'ravi_34_uo'),
+          getAvatar(context, 'katy034'),
+          getAvatar(context, '_palruk'),
         ],
       ),
     );
   }
 
-  Widget getAvatar(BuildContext context) {
+  Widget getAvatar(BuildContext context, String name) {
     return Container(
       width: 70,
       margin: EdgeInsets.all(6.0),
@@ -43,9 +43,11 @@ class StatusList extends StatelessWidget {
             padding: EdgeInsets.all(2.0),
             margin: EdgeInsets.only(bottom: 5.0),
           ),
-          Text('ghantahds', maxLines: 1,  overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.body1,)
+          Text(name, maxLines: 1,  overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.body1,)
         ],
       ),
     );
   }
+
+
 }
