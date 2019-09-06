@@ -31,7 +31,7 @@ This app is a design only prototype with interaction
 
 ## Demo Video
 
-[Demo Video](https://samples/demo_video.mp4)
+[Demo Video](samples/demo_video.mp4)
 
 ## Thank You
 
