@@ -1,9 +1,9 @@
-# instagram
+# Instagram
 
 An Instagram Clone in Flutter.
 
 ## Info
-This app is a design only prototype with interaction
+I have closed the backend servers due to heavy load
 
 ### Sample Images
 
